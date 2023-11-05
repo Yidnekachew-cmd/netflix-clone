@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import instance from "../axios";
 
 const base_url = 'https://image.tmdb.org/t/p/original/'; 
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, isLargeRow }) => {
     const [movies, setMovies] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -14,14 +14,15 @@ const Row = ({ title, fetchUrl }) => {
         fetchData();
      }, [ fetchUrl ]);
   return (
-    <div>
-        <h1>{title}</h1>
-        <div className="container mx-auto h-56 flex space-x-1">
+    <div className="container mx-auto space-y-2">
+        <h1 className="font-bold mt-6 text-white">{title}</h1>
+        <div className="container mx-auto flex space-x-2 overflow-y-hidden overflow-x-scroll p-2 row_posters">
            { movies.map((movie) => (
                 <img 
-                    src={`${base_url}${movie.poster_path}`} 
+                    key={movie.id}
+                    src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
                     alt={movie.name} 
-                    className='w-full  max-h-100  object-contain transition-transform duration-500 transform hover:scale-110'
+                    className={`w-full h-32 object-contain transition-transform duration-500 transform hover:scale-110 ${isLargeRow && 'h-64'}`} 
                 />
             ))}
         </div>
