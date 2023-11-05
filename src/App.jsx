@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import './App.css'
+// import './App.css'
 import Row from './components/Row'
 import requests from './requests'
+import Banner from './components/Banner'
 function App() {
 
   return (
       <div>
-        <h1 className='text-red text-4xl'>Netflix</h1>
+        <Banner />
         <Row 
           title='NETFLIX ORIGINALS' 
           fetchUrl={requests.fetchNetflixOriginals} 
@@ -15,6 +16,30 @@ function App() {
         <Row 
           title='Trending Now' 
           fetchUrl={requests.fetchTrending} 
+        />
+        <Row 
+          title='Top Rated' 
+          fetchUrl={requests.fetchTopRatedMovies} 
+        />
+        <Row 
+          title='Action Movies' 
+          fetchUrl={requests.fetchActionMovies} 
+        />
+        <Row 
+          title='Comedy Movies' 
+          fetchUrl={requests.fetchComedyMovies}
+        />
+        <Row 
+          title='Horror Movies' 
+          fetchUrl={requests.fetchHorrorMovies}
+        />
+        <Row 
+          title='Romance Movies' 
+          fetchUrl={requests.fetchRomanceMovies}
+        />
+        <Row 
+          title='Documentaries' 
+          fetchUrl={requests.fetchDocumentaries}
         />
       </div>
   )
