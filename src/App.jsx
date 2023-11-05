@@ -3,10 +3,12 @@ import { useState } from 'react'
 import Row from './components/Row'
 import requests from './requests'
 import Banner from './components/Banner'
+import NavBar from './components/NavBar'
 function App() {
 
   return (
       <div className='bg-[#111]'>
+        <NavBar />
         <Banner />
         <Row 
           title='NETFLIX ORIGINALS' 
