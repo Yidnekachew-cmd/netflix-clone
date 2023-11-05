@@ -22,22 +22,22 @@ const Banner = () => {
         return str?.length > n ? str.substr(0, n-1) + '...' : str;
     }
   return ( 
-            <header className=" h-96 object-contain  text-white pb-6" style={{
+            <header className=" h-96 object-contain text-white pb-6" style={{
                 backgroundSize: 'cover',
                 backgroundImage: `url(
                     "${base_url}${movie?.backdrop_path}"
                 )`,
                 backgroundPosition: 'center center'
             }}>
-                <div className="container mx-auto text-sm pt-36 h-auto ">
+                <div className="container mx-auto text-sm pt-32 h-auto ">
                     <h1 className="text-2xl font-semibold pb-2">{movie?.title || movie?.name || movie?.original_name}</h1>
                     <div className="banner_buttons">
                         <button className="cursor-pointer outline-none border-none font-semibold rounded px-8 py-1 mr-2 bg-myColor hover:text-[#000] hover:transition-all hover:duration-250 hover:bg-[#e6e6e6]">Play</button>
                         <button className="cursor-pointer outline-none border-none font-semibold rounded px-8 py-1 hover:text-[#000] bg-myColor hover:transition-all hover:duration-250 hover:bg-[#e6e6e6]">My List</button>
                     </div>
-                    <h1 className=" w-[50%] pt-3 pb-3 text-xs leading-5">{truncate(movie?.overview, 150)}</h1>
+                    <h1 className=" w-[40%] pt-3 pb-3 text-xs leading-5">{truncate(movie?.overview, 150)}</h1>
                 </div>
-                <div className="banner--fadeBottom" />
+                <div className="h-32 rotate-180 bg-gradient-to-t from-transparent via-gradient to-[#111]" />
             </header>
   )
 }

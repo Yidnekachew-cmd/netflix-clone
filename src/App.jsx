@@ -6,7 +6,7 @@ import Banner from './components/Banner'
 function App() {
 
   return (
-      <div>
+      <div className='bg-[#111]'>
         <Banner />
         <Row 
           title='NETFLIX ORIGINALS' 
