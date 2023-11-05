@@ -39,7 +39,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                     key={movie.id}
                     src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
                     alt={movie.name} 
-                    className={`w-full h-32 object-contain transition-transform duration-500 transform hover:scale-110  ${isLargeRow && 'h-64'}`} 
+                    className={` cursor-pointer w-full h-32 object-contain transition-transform duration-500 transform hover:scale-110  ${isLargeRow && 'h-64'}`} 
                 />
             ))}
         </div>
