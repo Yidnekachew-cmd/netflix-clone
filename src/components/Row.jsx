@@ -1,4 +1,5 @@
 // Instance is a place whare we put base url
+import PropTypes from 'prop-types'
 import { useEffect, useState } from "react";
 import instance from "../axios";
 import YouTube from "react-youtube";
@@ -31,8 +32,8 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
      }
   return (
     <div className="container mx-auto space-y-2 ">
-        <h1 className="font-bold mt-2 text-white z-50">{title}</h1>
-        <div className="container mx-auto flex space-x-2 overflow-y-hidden overflow-x-scroll p-2 row_posters">
+        <h1 className="font-bold mt-2 text-white text-lg pl-[2%] z-50">{title}</h1>
+        <div className="container mx-auto flex space-x-4 overflow-y-hidden overflow-x-scroll p-2 row_posters">
            { movies.map((movie) => (
                 <img 
                     onClick={() => handleClick(movie)}
@@ -54,6 +55,13 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         </div>
     </div>
   )
+}
+
+Row.propTypes = {
+    title: PropTypes.string.isRequired,
+    fetchUrl: PropTypes.array.isRequired,
+    isLargeRow: PropTypes.func.isRequired,
+
 }
 
 export default Row
